@@ -1,0 +1,25 @@
+﻿
+@model ViveroMVC02.ViewModels.Provincia.ProvinciaEditViewModels
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nueva Provincia </h2>
+<hr />
+@using (Html.BeginForm("Create", "Provincias", FormMethod.Post))
+{
+    @Html.ValidationSummary(true,"",new{@class="text-danger"})
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.NombreProvincia)
+        @Html.TextBoxFor(m => m.NombreProvincia, new { @class = "form-control",autofocus="autofocus" })
+        @Html.ValidationMessageFor(m => m.NombreProvincia, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a href="@Url.Action("Index","Provincias")" class="btn btn-success">Volver</a>
+
+    </div>
+}
+

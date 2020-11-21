@@ -1,0 +1,29 @@
+﻿@model ViveroMVC02.Models.Categoria
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle Categoría</h2>
+<hr />
+@using (Html.BeginForm("Details", "Categorias", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.NombreCategoria)
+        @Html.TextBoxFor(m => m.NombreCategoria, new { @class = "form-control", disabled = "disable" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Descripcion)
+        @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control", disabled = "disable" })
+    </div>
+
+
+
+    <div class="form-group">
+        <a href="@Url.Action("Index", "Categorias")" class="btn btn-success">
+            <i class="fas fa-backspace"></i>
+            Volver
+        </a>
+    </div>
+}

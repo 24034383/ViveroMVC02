@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Vivero</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-green bg-green">
+        <div class="navbar navbar-inverse navbar-fixed-to">
+            <div class="container">
+                <a class="navbar-brand " href="#">Vivero Las Plantas</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Archivos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div>
+                                    <a class="dropdown-item" href="@Url.Action("Index","Categorias")">Categorías</a><br />
+                                    <a class="dropdown-item" href="@Url.Action("Index","Productos")">Productos</a><br />
+                                </div>
+                                <br />
+                                <div>
+                                    <a class="dropdown-item" href="@Url.Action("Index","Provincias")">Provincias</a> <br />
+                                    <a class="dropdown-item" href="@Url.Action("Index","Localidades")">Localidades</a><br />
+
+                                </div>
+                                <br />
+                                <div class="dropdown-divider">
+                                    <div>
+                                        <a class="dropdown-item" href="@Url.Action("Index","Proveedores")">Proveedores</a><br />
+                                        <a class="dropdown-item" href="@Url.Action("Index","Clientes")">Clientes</a><br />
+                                        <a class="dropdown-item" href="@Url.Action("Index","Empleados")">Empleados</a><br />
+
+                                    </div>
+
+                                </div>
+                                @*<div class="dropdown-divider">
+
+                                </div>*@
+                            </div>
+
+                        </li>
+
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Movimientos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="@Url.Action("Index","Ventas")"><strong>Ventas</strong></a> <br />
+                                <a class="dropdown-item" href="@Url.Action("Index","Compras")"><strong>Compras</strong></a><br />
+                           
+                            </div>
+
+                        </li>
+
+
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year -Vivero App</p>
+            </footer>
+        </div>
+
+    </nav>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

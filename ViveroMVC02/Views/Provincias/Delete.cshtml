@@ -1,0 +1,30 @@
+﻿
+@model ViveroMVC02.ViewModels.Provincia.ProvinciaListViewModels
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar Provincia</h2>
+<hr />
+@using (Html.BeginForm("Delete", "Provincias", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.NombreProvincia)
+        @Html.TextBoxFor(m => m.NombreProvincia, new { @class = "form-control", disabled = "disable" })
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+            Borrar
+        </button>
+        <a href="@Url.Action("Index", "Provincias")" class="btn btn-success">
+            <i class="fas fa-backspace"></i>
+            Volver
+        </a>
+    </div>
+}
+
+

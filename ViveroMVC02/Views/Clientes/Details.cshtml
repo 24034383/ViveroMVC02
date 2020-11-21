@@ -1,0 +1,53 @@
+﻿@model ViveroMVC02.Models.Cliente
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle Proveedor</h2>
+<hr />
+@using (Html.BeginForm("Details", "Clientes", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nombre)
+        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", autofocus = "autofocus" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Apellido)
+        @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control", autofocus = "autofocus" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NroDocumento)
+        @Html.TextBoxFor(m => m.NroDocumento, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Direccion)
+        @Html.TextBoxFor(m => m.Direccion, new { @class = "form-control" })
+    </div>
+
+    @*</div>*@
+    @*<div class="col">*@
+    <div class="form-group">
+        @Html.LabelFor(m => m.TelefonoFijo)
+        @Html.TextBoxFor(m => m.TelefonoFijo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.TelefonoMovil)
+        @Html.TextBoxFor(m => m.TelefonoMovil, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CorreoElectronico)
+        @Html.TextBoxFor(m => m.CorreoElectronico, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <a href="@Url.Action("Index", "Clientes")" class="btn btn-success">
+            <i class="fas fa-backspace"></i>
+            Volver
+        </a>
+    </div>
+}
